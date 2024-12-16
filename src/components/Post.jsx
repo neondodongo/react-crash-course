@@ -1,11 +1,11 @@
-import "./Post.css";
+import styles from "./Post.module.css";
 
 function Post({ author, body }) {
   return (
-    <div className="post">
-      <p>{author}</p>
-      <p>{body}</p>
-    </div>
+    <li className={styles.post}>
+      <p classname={styles.author}>{author}</p>
+      <p className={styles.text}>{body}</p>
+    </li>
   );
 }
 
