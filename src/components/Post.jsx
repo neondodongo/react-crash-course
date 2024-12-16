@@ -1,8 +1,10 @@
-function Post() {
+import "./Post.css";
+
+function Post({ author, body }) {
   return (
-    <div>
-      <p>Will</p>
-      <p>React.js is pretty cool, I guess.</p>
+    <div className="post">
+      <p>{author}</p>
+      <p>{body}</p>
     </div>
   );
 }
