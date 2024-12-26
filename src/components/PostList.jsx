@@ -1,6 +1,5 @@
 import Post from "./Post";
 import styles from "./PostList.module.css";
-import { v4 as uuidv4 } from "uuid";
 import { useLoaderData } from "react-router-dom";
 
 const PostList = () => {
@@ -12,7 +11,12 @@ const PostList = () => {
         <ul className={styles.posts}>
           {posts.map((post) => {
             return (
-              <Post key={uuidv4()} author={post.author} body={post.body} />
+              <Post
+                key={post.id}
+                id={post.id}
+                author={post.author}
+                body={post.body}
+              />
             );
           })}
         </ul>
