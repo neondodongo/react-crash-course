@@ -6,32 +6,13 @@ import { useLoaderData } from "react-router-dom";
 const PostList = () => {
   const posts = useLoaderData();
 
-  function addPostHandler(postData) {
-    fetch("http://localhost:8080/posts", {
-      method: "POST",
-      body: JSON.stringify(postData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    setPosts((existingPosts) => [postData, ...existingPosts]);
-  }
-
-  function generatePostKey() {
-    return uuidv4();
-  }
-
   return (
     <>
       {posts.length > 0 && (
         <ul className={styles.posts}>
           {posts.map((post) => {
             return (
-              <Post
-                key={generatePostKey()}
-                author={post.author}
-                body={post.body}
-              />
+              <Post key={uuidv4()} author={post.author} body={post.body} />
             );
           })}
         </ul>
